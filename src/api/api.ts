@@ -2,7 +2,7 @@ import axios from "axios";
 import { getToken } from "../utils/token";
 
 export const api = axios.create({
-  baseURL: "http://localhost:8080/api",
+  baseURL: "https://recommendation-engine-e786.onrender.com/api",
   headers: {
     "Content-Type": "application/json",
   },
