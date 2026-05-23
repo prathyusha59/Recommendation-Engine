@@ -44,7 +44,6 @@ public class SecurityConfig {
                                 "/api/products/public/**",
                                 "/actuator/health"
                         ).permitAll()
-                        // hasRole → hasAuthority గా మార్చాం
                         .requestMatchers("/api/admin/**").hasAuthority("ROLE_ADMIN")
                         .anyRequest().authenticated()
                 )
@@ -62,7 +61,9 @@ public class SecurityConfig {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowedOrigins(List.of(
                 "http://localhost:3000",
-                "http://localhost:5173"
+                "http://localhost:5173",
+                "https://recoengine-frontend.vercel.app",
+                "https://recoengine-frontend-4garqv7eu-recoengine.vercel.app"
         ));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
