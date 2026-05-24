@@ -15,7 +15,13 @@ function Login() {
       setToken(response.data.token)
       localStorage.setItem("role", response.data.role)
       localStorage.setItem("name", response.data.name)
-      navigate('/dashboard')
+
+      // Admin అయితే Admin page కి
+      if (response.data.role === "ADMIN") {
+        navigate('/admin')
+      } else {
+        navigate('/dashboard')
+      }
     } catch (error) {
       alert('Invalid email or password')
       console.log(error)
